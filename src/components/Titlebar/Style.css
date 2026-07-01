@@ -1,0 +1,31 @@
+
+
+:root{
+  --dark-primary-text:hsl(246, 15%, 94%)
+  --dark-primary-border:hsl(246, 10%, 65%);
+}
+
+
+/* 
+const themePalette = [
+  // 1. Lightest (High-Contrast Text): Primary hue, ultra-high light, dead saturation
+  "hsl(246, 15%, 94%)", 
+  
+  // 2. Mid-Light (Subtext & Borders): Primary hue, balanced mid-high light
+  "hsl(246, 10%, 65%)", 
+  
+  // 3. Success Green: Shift hue to emerald, lock accent saturation & lightness
+  "hsl(145, 54%, 53%)", 
+  
+  // 4. Error Red: Shift hue to crimson, lock accent saturation & lightness
+  "hsl(0, 54%, 53%)", 
+  
+  // 5. Primary Accent: Your exact indigo anchor point
+  "hsl(246, 54%, 53%)", 
+  
+  // 6. Elevated Surface: Canvas hue, drop saturation, lift lightness by 5%
+  "hsl(226, 45%, 8%)", 
+  
+  // 7. Darkest (Canvas Base): Your exact midnight anchor point
+  "hsl(226, 100%, 3%)"
+]; */

@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+
+
+.Titlebar{
+  display: flex;
+
+
+}
+
+.leftTitlebar{
+  display: flex;
+}
