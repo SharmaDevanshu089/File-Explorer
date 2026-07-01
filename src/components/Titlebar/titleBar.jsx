@@ -12,8 +12,16 @@ export function TitleBar() {
     // The data below is needed to allow dragging of the window
     <div className="Titlebar-window" data-tauri-drag-region >
       <button onClick={do_minimize}>-</button>
-      {/* TODO: Fix this please , call the below function , do not invoke */}
-      <button onClick={() => { const nextMaximized = !maximized; setMaximized(nextMaximized); invoke(`${nextMaximized ? "to_expand" : "to_contract"}`).catch(console.error) }}>{maximizeIcon}</button>
+      {/* Call the local window functions directly, do not invoke backend commands */}
+      <button onClick={() => {
+        const nextMaximized = !maximized;
+        setMaximized(nextMaximized);
+        if (nextMaximized) {
+          to_expand();
+        } else {
+          to_contract();
+        }
+      }}>{maximizeIcon}</button>
       <button onClick={close_window}>x</button>
     </div>
   );
