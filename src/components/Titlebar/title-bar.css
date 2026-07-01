@@ -1,7 +1,7 @@
 @import "../../variable.css";
 
 .Titlebar-window {
-  background-color: hsl(215, 12%, 8%);
+  background-color: var(--primary-sidebar);
   display: flex;
   align-items: center;
   justify-content: flex-end;
