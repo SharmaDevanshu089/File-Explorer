@@ -1,11 +1,14 @@
-
+@import "src/variable.css";
 
 .Titlebar{
   display: flex;
-
 
 }
 
 .leftTitlebar{
   display: flex;
+}
+
+.dropdown{
+  display: block;
 }

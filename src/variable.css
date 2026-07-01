@@ -1,0 +1,17 @@
+/* const themePalette = [
+  "hsl(38, 15%, 94%)", "hsl(215, 10%, 65%)", "hsl(145, 85%, 55%)", "hsl(0, 85%, 55%)",
+  "hsl(38, 85%, 55%)", "hsl(215, 12%, 15%)", "hsl(215, 12%, 8%)"
+]; // Order: Text, Muted, Success, Error, Amber Accent, Sidebar, Canvas Base */
+
+:root{
+  --primary-text:hsl(38, 15%, 94%);
+  --primary-muted:hsl(215, 10%, 65%);
+  --primary-sucess:hsl(145, 85%, 55%);
+  --primary-error:hsl(0, 85%, 55%);
+  --primary-accent:hsl(38, 85%, 55%);
+  --primary-sidebar:hsl(215, 12%, 15%);
+  --primary-background:hsl(215, 12%, 15%);
+}
+
+
+
