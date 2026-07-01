@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.app-container{
+.app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -12,14 +12,15 @@
   overflow: hidden;
 }
 
-.main-area-partitioning{
+.main-area-partitioning {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   background-color: var(--primary-background);
 }
-.Sidebar-area{
 
+.Sidebar-area {
+  /* Use minmax here for smoother change, between 25% and suitable pixels for small screens [pixels should be smaller for small screns]*/
   width: 25%;
   max-width: 350px;
   min-width: 150px;
@@ -28,8 +29,9 @@
   box-shadow: 0 100 10px 20px hsl(215, 12%, 12%);
   background-color: var(--primary-sidebar);
 }
-.Topbar-area{
-  display: flex;  
+
+.Topbar-area {
+  display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;

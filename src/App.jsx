@@ -14,10 +14,9 @@ console.log(config_struct);
 export default function App() {
   return (
     <div className="app-container">
-      <TitleBar />
       <div className="main-area-partitioning">
-        <div className="Sidebar-area"><Sidebar/></div>
-        <div className="Topbar-area"><TopBar/></div>
+        <div className="Sidebar-area"><Sidebar /></div>
+        <div className="Topbar-area"><TitleBar /></div>
       </div>
     </div>
   );
