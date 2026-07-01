@@ -11,5 +11,13 @@ console.log("Learning this execution");
 let config_struct = invoke("get_config");
 console.log(config_struct);
 export default function App() {
-  return <div><TitleBar/><TopBar/></div>;
+  // Added this to remove the default margin from the titlebar
+  document.getElementsByClassName("m-0 p-0")[0].style.margin = "0";
+  document.getElementsByClassName("m-0 p-0")[0].style.padding = "0";
+  return (
+    <>
+      <body className="m-0 p-0"><TitleBar /><TopBar /></body >
+    </>
+
+  );
 }

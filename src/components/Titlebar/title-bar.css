@@ -19,6 +19,7 @@
   font-family: monospace;
   font-size: 14px;
   width: 40px;
+  /* Please Make these , espesially height relative to the display size , currently it is too short */
   height: 32px;
   display: flex;
   align-items: center;
