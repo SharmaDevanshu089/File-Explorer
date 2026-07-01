@@ -4,6 +4,6 @@
 mod config_manager;
 
 fn main() {
-    config_manager::check_if_config_exists();
+    // config_manager::check_if_config_exists();
     file_viewer_lib::run()
 }
