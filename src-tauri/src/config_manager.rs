@@ -43,4 +43,8 @@ pub fn check_if_config_exists_or_create_one(application_directory: PathBuf) {
     }
     println!("created new config path : {:#?}", settings_path);
 }
-pub fn load_config() {}
+
+#[tauri::command]
+pub fn get_config() {
+    // Since the config is built and checked at startup we dont need to check
+}
