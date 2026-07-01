@@ -53,10 +53,8 @@ pub fn get_config(app: tauri::AppHandle) -> Result<Settings, String> {
     let config_file = config_dir.join(CONFIG_NAME);
     let config_raw_data =
         fs::read(config_file).map_err(|e| format!("Failed to Read config JSON: {}", e))?;
-    if DEBUG {
-        println!("Get Config Function Ran {:?}", &config_raw_data);
-    }
     let retuning_data: Settings = serde_json::from_slice(&config_raw_data)
         .map_err(|e| format!("Failed to parse config JSON: {}", e))?;
+    println!("retuning_data {:?}", retuning_data);
     return Ok(retuning_data);
 }
