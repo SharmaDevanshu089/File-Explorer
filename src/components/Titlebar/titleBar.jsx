@@ -28,7 +28,7 @@ export function TitleBar() {
   }
 
   return (
-    <div className="Titlebar-window">
+    <div className="Titlebar-window" data-tauri-drag-region>
       <button onClick={handleMinimize}>
         <svg width="10" height="1" viewBox="0 0 10 1">
           <rect width="10" height="1" fill="currentColor" />
