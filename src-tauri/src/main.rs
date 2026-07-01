@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 mod config_manager;
+mod settings_manager;
 
 fn main() {
     // config_manager::check_if_config_exists();
