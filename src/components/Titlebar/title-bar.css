@@ -5,16 +5,17 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 32px; 
+  height: 32px;
 }
 
 .Titlebar-window button {
   background-color: transparent;
   border: none;
-  padding: 0;       
-  margin: 0;        
-  min-width: 0;     
-  color: inherit;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  /* TODO: Make this accent color */
+  color: white;
   font-family: monospace;
   font-size: 14px;
   width: 40px;
@@ -23,18 +24,18 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  overflow: hidden; 
+  overflow: hidden;
   transition: width 0.2s ease-in-out, opacity 0.2s ease-in-out, background-color 0.15s ease;
 }
 
 .Titlebar-window button:hover {
-  width: 120px; 
+  width: 120px;
 }
 
 .Titlebar-window:has(button:hover) button:not(:hover) {
   width: 0;
   opacity: 0;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .Titlebar-window button:not(:last-child):hover {
