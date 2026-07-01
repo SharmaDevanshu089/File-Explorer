@@ -1,8 +1,11 @@
 use serde::Deserialize;
 use serde::Serialize;
+use std::error;
 use std::fs;
 use std::path::Path;
 use std::path::PathBuf;
+use tauri::utils::config;
+use tauri::Manager;
 // use tauri::Manager;
 
 const CONFIG_NAME: &str = "settings.json";
@@ -44,6 +47,16 @@ pub fn check_if_config_exists_or_create_one(application_directory: PathBuf) {
 }
 
 #[tauri::command]
-pub fn get_config() {
+pub fn get_config(app: tauri::AppHandle) -> Result<Settings, String> {
     // Since the config is built and checked at startup we dont need to check
+    let config_dir = app.path().app_config_dir().unwrap();
+    let config_file = config_dir.join(CONFIG_NAME);
+    let config_raw_data =
+        fs::read(config_file).map_err(|e| format!("Failed to Read config JSON: {}", e))?;
+    if DEBUG {
+        println!("Get Config Function Ran {:?}", &config_raw_data);
+    }
+    let retuning_data: Settings = serde_json::from_slice(&config_raw_data)
+        .map_err(|e| format!("Failed to parse config JSON: {}", e))?;
+    return Ok(retuning_data);
 }
