@@ -9,8 +9,10 @@
   --primary-sucess:hsl(145, 85%, 55%);
   --primary-error:hsl(0, 85%, 55%);
   --primary-accent:hsl(38, 85%, 55%);
-  --primary-sidebar:hsl(215, 12%, 15%);
+  --primary-sidebar:hsl(215, 12%, 9%);
   --primary-background:hsl(215, 12%, 15%);
+  --primary-topbar:hsl(215, 12%, 12%);
+  --primary-border:rgba(255, 255, 255, 0.05);
 }
 
 

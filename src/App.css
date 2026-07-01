@@ -1,0 +1,38 @@
+@import "variable.css";
+
+* {
+  box-sizing: border-box;
+}
+
+.app-container{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-area-partitioning{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  background-color: var(--primary-background);
+}
+.Sidebar-area{
+
+  width: 25%;
+  max-width: 350px;
+  min-width: 150px;
+  height: 100vh;
+  border-right: 2px solid var(primary-border);
+  box-shadow: 0 100 10px 20px hsl(215, 12%, 12%);
+  background-color: var(--primary-sidebar);
+}
+.Topbar-area{
+  display: flex;  
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  width: 75%;
+  height: 100%;
+}
