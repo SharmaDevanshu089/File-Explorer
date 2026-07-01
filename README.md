@@ -46,6 +46,7 @@ This project leverages Rust for memory-safe, fast system-level operations and Re
 ├── index.html             # Application HTML entry point
 ├── package.json           # Frontend dependencies and scripts
 └── tsconfig.json          # TypeScript configuration
+    appiconV2              # Newer Updated Icon
 ```
 
 ---
