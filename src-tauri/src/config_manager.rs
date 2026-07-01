@@ -15,9 +15,8 @@ pub struct Settings {
     // May be used may not be , but this is theme of application
     pub theme: String,
 }
-
 // Should Return by Checking if Path Exists
-// Updatting this to panic instead of returning error , this is a hit function
+// Updatting this to panic instead of returning error , this is a hit once function
 pub fn check_if_config_exists_or_create_one(application_directory: PathBuf) {
     let settings_path = application_directory.join(CONFIG_NAME);
 
