@@ -1,3 +1,4 @@
+use dirs::home_dir;
 use serde::Deserialize;
 use serde::Serialize;
 use std::error;
@@ -32,7 +33,7 @@ pub fn check_if_config_exists_or_create_one(application_directory: PathBuf) {
 
         // Building Boiler Plate for settings
         let default_settings: Settings = Settings {
-            initial_directory: PathBuf::from("C:\\"),
+            initial_directory: home_dir().unwrap(),
             theme: String::from("dark"),
         };
 
