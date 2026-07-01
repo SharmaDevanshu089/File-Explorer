@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 32px;
+  height: 36px;
 }
 
 .Titlebar-window button {
@@ -20,7 +20,7 @@
   font-size: 14px;
   width: 40px;
   /* Please Make these , espesially height relative to the display size , currently it is too short */
-  height: 32px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
