@@ -3,6 +3,8 @@ import { getCurrentWindow } from "@tauri-apps/api/window";
 import './title-bar.css';
 
 const appWindow = getCurrentWindow();
+// This will return if the application is initially maximised or not
+const isInitiallyMaximized = await appWindow.isMaximized();
 
 export function TitleBar() {
   const [maximized, setMaximized] = useState(true);
@@ -10,21 +12,21 @@ export function TitleBar() {
   function close_window() {
     appWindow.close();
   }
-  
+
   function handleMinimize() {
-    appWindow.minimize(); 
+    appWindow.minimize();
   }
 
   function handleMaximizeToggle(isMaximized) {
-    const nextMaximized = !isMaximized; 
-    setMaximized(nextMaximized); 
+    const nextMaximized = !isMaximized;
+    setMaximized(nextMaximized);
 
     if (isMaximized) {
       return appWindow.unmaximize();
     }
     return appWindow.maximize();
   }
-  
+
   return (
     <div className="Titlebar-window">
       <button onClick={handleMinimize}>
