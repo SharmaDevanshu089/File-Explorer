@@ -9,7 +9,8 @@ export function TitleBar() {
   const maximizeIcon = maximized ? '==' : '=';
 
   return (
-    <div className="Titlebar-window">
+    // The data below is needed to allow dragging of the window
+    <div className="Titlebar-window" data-tauri-drag-region >
       <button onClick={do_minimize}>-</button>
       {/* TODO: Fix this please , call the below function , do not invoke */}
       <button onClick={() => { const nextMaximized = !maximized; setMaximized(nextMaximized); invoke(`${nextMaximized ? "to_expand" : "to_contract"}`).catch(console.error) }}>{maximizeIcon}</button>
