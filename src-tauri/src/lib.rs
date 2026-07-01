@@ -1,6 +1,7 @@
 use tauri::Manager;
 
 mod config_manager;
+mod library_return;
 mod misc_function;
 mod settings_manager;
 
@@ -18,7 +19,8 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             config_manager::get_config,
             misc_function::get_username,
-            settings_manager::get_default_current_directory
+            settings_manager::get_default_current_directory,
+            library_return::get_library_path
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
