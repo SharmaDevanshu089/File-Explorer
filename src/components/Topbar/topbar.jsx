@@ -11,12 +11,11 @@ export function TopBar() {
     { id: 2, name: 'Redo', checked: false }
   ]);
 
-  const arrowIcon = isArrowSelected ? '--' : '-';
 
   return (
     <div className="Topbar">
       <div className="checklist-dropdown">
-        <button onClick={() => setIsArrowSelected(!isArrowSelected)}>{arrowIcon}</button>
+        <button onClick={() => setIsArrowSelected(!isArrowSelected)}>-</button>
         {isArrowSelected && <Checklist items={checklistItems} setItems={setChecklistItems} />}
       </div>
 
@@ -61,6 +60,7 @@ function Checklist({ items, setItems }) {
 function Settings() {
   const handleAction = (action) => {
     console.log(`Action triggered: ${action}`);
+
   };
 
   return (
