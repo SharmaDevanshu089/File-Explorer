@@ -16,7 +16,11 @@ import './App.css'
 
      CURRENTDIRECTORY:
      this will store what current directory of application is the user on,
-     we will need this for sidebar to work, as well as for ViewWindow
+     we will need this for sidebar to work, as well as for ViewWindow.
+
+
+
+     TODO for me : FIX the Reset Button
      
 */
 
