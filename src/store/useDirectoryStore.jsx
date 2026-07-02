@@ -5,9 +5,13 @@ export const useDirectoryStore = create(
     currentWindow:"ViewWindow",
     currentDir:"",
     currentPath:'',
+    searchQuery:'',
+    filteredQuery:[],
 
     setCurrentWindow:(win)=>set({currentWindow:win}),
+    setSearchQuery:(win)=>set({searchQuery:win}),
     setCurrentDir:(win)=>set({currentDir:win}),
-    setCurrentPath:(res)=>set({currentPath:res})
+    setCurrentPath:(res)=>set({currentPath:res}),
+    setFilteredQuery:(res)=>set({filteredQuery:res})
   })
 )
