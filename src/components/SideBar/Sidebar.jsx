@@ -1,7 +1,9 @@
 import { invoke } from "@tauri-apps/api/core";
 import './sidebar.css'
+import { useDirectoryStore } from "../../store/useDirectoryStore";
 
-export function Sidebar({ setCurrentPath }) {
+export function Sidebar() {
+  const setCurrentPath=useDirectoryStore(state=>state.setCurrentPath);
   const handleFolderClick = async (name) => {
     try {
       const path = await invoke("get_library_path", { name });
