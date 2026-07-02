@@ -9,7 +9,7 @@ export function Sidebar() {
   //   FetchData("home_dir");
   // },[])
   return (
-    <div class="sidebar-container">
+    <div className="sidebar-container">
 
       {/* BELOW I HAVE LISTED ALL SIDEBAR LIBRARIES OPTION FOR YOU
        
