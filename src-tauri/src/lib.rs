@@ -1,6 +1,7 @@
 use tauri::Manager;
 
 mod config_manager;
+mod file_viewser;
 mod library_return;
 mod misc_function;
 mod settings_manager;
@@ -21,7 +22,8 @@ pub fn run() {
             misc_function::get_username,
             settings_manager::get_default_current_directory,
             settings_manager::update_initial_directory,
-            library_return::get_library_path
+            library_return::get_library_path,
+            file_viewser::list_all_files
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
