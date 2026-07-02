@@ -21,7 +21,12 @@ export function Sidebar() {
        pictures_dir = Pictures Directory
        videos_dir = Videos Directory
        
-       
+       How the application is gonna work:
+
+       -> USER CLICK ON A OPTION
+       -> YOU FETCH THE PATH OF THE RESPECTIVE FOLDER
+       -> YOU SIGNAL THE APPLICATION WINDOW TO MOVE TO THAT DIRECTORY
+       (HOW WILL YOU DO THAT WITH THE HELP OF MAYBE CHANGING STATE WHICH KEEPS THE PATH, I HAVE PROVIDED ENDPOINT TO YOU) 
       */}
     </div>
   )
