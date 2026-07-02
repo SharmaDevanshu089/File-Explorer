@@ -1,5 +1,5 @@
 // This React will house the settings window
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import { getCurrentWindow } from "@tauri-apps/api/window";
 import './default.css';
@@ -12,19 +12,37 @@ export function SettingsWindow() {
 
     const [initial_directory_path, set_initial_directory_path] = useState("Loading ... ");
 
-
+    //DONE
     // I svelte just updates this automatically but i dont know how to do this in here, i know there is something called usestate but i need to learn how to do this
     // THis is just for debugging
-    invoke("get_default_current_directory").then(
-        (data) => {
-            console.log(data);
-            set_initial_directory_path(data)
-        }
-    )
+useEffect(() => {
+  const loadDefDir=async()=>{
+    //wiat until backend respond
+    try{const data = await invoke("get_default_current_directory");
+      console.log("Fetched directory:", data);
+      set_initial_directory_path(data);
+        
+}catch(err){
+      console.error("Failed to fetch default directory:", err);
+    };
+}
+loadDefDir();
+return ()=>{};
+}, []);
 
 
     function resetAllToDefaults() {
         console.log("Resetting all to defaults");
+        //commented this if u dins useful u can do i haven't read that instruction
+        // async function resetingAlltoDefault(){
+        //     try{
+        //         // await invoke()
+        //         // const defPath = await invoke(get_default_current_directory)
+        //         // set_initial_directory_path(defPath)
+        //     }catch(err){
+        //         console.error("Error from Backend babu...",err)
+        //     }
+        // }
     }
 
     // Asynchronous click handler for the initial directory input field.
@@ -48,7 +66,7 @@ export function SettingsWindow() {
         <div className="setting-panel">
             <div className="setting-header">
                 <h1>Settings</h1>
-                <button onClick={() => resetAllToDefaults()}>Reset</button>
+                <button onClick={() => resetAllToDefaults()}>Reset to Default</button>
             </div>
             {/* This will contains all the componets that needed to be tweaked  */}
             <div className="Config_panel">
