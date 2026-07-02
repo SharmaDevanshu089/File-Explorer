@@ -21,9 +21,12 @@
 
 .Sidebar-area {
   /* Use minmax here for smoother change, between 25% and suitable pixels for small screens [pixels should be smaller for small screns]*/
-  width: 25%;
-  max-width: 350px;
-  min-width: 150px;
+  /* width: 25%; */
+
+  /* UPDATED this to be minimum of 240px and then i but will generally use 25% on high res low size display*/
+  width: min(240px, 25%);
+  /* max-width: 350px; */
+  /* min-width: 150px; */
   height: 100vh;
   border-right: 2px solid var(primary-border);
   box-shadow: 0 100 10px 20px hsl(215, 12%, 12%);
