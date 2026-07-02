@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getCurrentWindow } from "@tauri-apps/api/window";
-import './title-bar.css';
+import "./title-bar.css";
 
 const appWindow = getCurrentWindow();
 // This will return if the application is initially maximised or not
@@ -38,7 +38,10 @@ export function TitleBar() {
       <button onClick={() => handleMaximizeToggle(maximized)}>
         {maximized ? (
           <svg width="10" height="10" viewBox="0 0 10 10">
-            <path d="M3 1h6v6H8v1h2V0H2v2h1V1zm-2 2h6v6H1V3zm1 1v4h4V4H2z" fill="currentColor" />
+            <path
+              d="M3 1h6v6H8v1h2V0H2v2h1V1zm-2 2h6v6H1V3zm1 1v4h4V4H2z"
+              fill="currentColor"
+            />
           </svg>
         ) : (
           <svg width="10" height="10" viewBox="0 0 10 10">
@@ -49,7 +52,10 @@ export function TitleBar() {
 
       <button onClick={close_window}>
         <svg width="10" height="10" viewBox="0 0 10 10">
-          <path d="M10 .707L9.293 0 5 4.293.707 0 0 .707 4.293 5 0 9.293l.707.707L5 5.707 9.293 10l.707-.707L5.707 5z" fill="currentColor" />
+          <path
+            d="M10 .707L9.293 0 5 4.293.707 0 0 .707 4.293 5 0 9.293l.707.707L5 5.707 9.293 10l.707-.707L5.707 5z"
+            fill="currentColor"
+          />
         </svg>
       </button>
     </div>

@@ -1,6 +1,9 @@
+@import "../../../variable.css";
+
 .setting-panel {
     width: calc(100% - 50px);
     height: calc(100% - 50px);
+    opacity: 0.9;
     background-color: var(--primary-background);
     margin: 25px;
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
@@ -115,4 +118,4 @@
     border-color: var(--primary-border);
     border-bottom: 2px solid var(--primary-accent);
     padding-bottom: 5px; /* Adjust padding to keep elements aligned when border increases */
-}
+}

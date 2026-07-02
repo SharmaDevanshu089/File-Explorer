@@ -12,8 +12,8 @@
   --primary-sucess: hsl(145, 85%, 55%);
   --primary-error: hsl(0, 85%, 55%);
   --primary-accent: hsl(38, 85%, 55%);       /* Core Amber Accent */
-  --primary-sidebar: hsl(220, 13%, 9%);
-  --primary-background: hsl(215, 12%, 15%);
+  --primary-sidebar: hsl(30, 13%, 9%);
+  --primary-background: hsl(24, 8%, 12%);
   --primary-topbar: hsl(215, 12%, 12%);
   --primary-border: rgba(255, 255, 255, 0.05);
 

@@ -1,51 +1,168 @@
-@import "../../../variable.css";
-
 .view-window {
-  width: 100%;
-  height: 100%;
-  background-color: var(--primary-background);
-  color: var(--primary-text);
   display: flex;
   flex-direction: column;
-  align-items: center;     
-  position: relative;
+  height: 100vh;
+  background-color: #1a1210;
+  color: hsl(38, 15%, 94%);
+  box-sizing: border-box;
+  overflow: hidden; /* Locks parent viewport chain */
+
+  /* Protects workspace layout from blue highlights on multi-clicks */
+  /* i just wrote user-select it is still selecting so gemini give */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
-.File-path {
-  overflow: hidden;
-  width: 70%;               
-  max-width: 850px;         
-  min-width: 320px;         
-  
-  margin: 0;                
-  padding: 10px 16px;
-  background-color: var(--primary-topbar);
-  
-  border-left: 1px solid var(--primary-border);
-  border-right: 1px solid var(--primary-border);
-  border-bottom: 1px solid var(--primary-border);
-  border-top: none;        
-  
-  border-radius: 0 ; 
+.view-win-top-loc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #1a1a1a;
+  border-bottom: 2px solid #282828;
+}
 
+.back-button,
+.gohome-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  font-family: monospace;   
+  background-color: #242424;
+  border: 1px solid #383838;
+  color: #a0a0a0;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.15s ease;
+}
+
+.back-button:hover,
+.gohome-btn:hover {
+  background-color: #2d2d2d;
+  opacity:0.8;
+  color: #ffb703;
+  border-color: #ffb703;
+}
+
+.back-button svg,
+.gohome-btn svg {
+  stroke: currentColor;
+}
+
+.File-path {
+  flex-grow: 1;
+  background-color: #121212;
+  border: 2px solid #282828;
+  max-width: 400px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+}
+
+.path-display {
+  margin: 0;
+  font-family: monospace;
   font-size: 13px;
-  font-weight: 500;
-  color: var(--primary-muted);
-  letter-spacing: 0.3px;
-  
-  /* Prevent layout clipping or multi-line breaks for extra security by gemini */
+  color: #cccccc;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.error-msg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #2a1b1b;
+  border-bottom: 2px solid #e63946;
+  padding: 10px 16px;
+}
 
-.File-path:hover {
-  color: var(--primary-accent);
-  border-color: var(--primary-accent);
-  transition: color 0.15s ease, border-color 0.15s ease;
+.error-msg p {
+  margin: 0;
+  font-size: 13px;
+  color: #ff8888;
+}
+
+.error-msg button {
+  background-color: #e63946;
+  border: none;
+  color: #ffffff;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.main-file-area {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-auto-rows: max-content; /* Prevents cell heights from inflating */
+  align-content: start; /* Pins item layout matrix tightly to the top */
+  gap: 16px;
+  padding: 30px 40px;
+  overflow-y: auto; /* Enables scrolling exclusively on grid canvas */
+  min-height: 0; /* Forces flex container to yield scrolling space */
+}
+
+.item-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  opacity: 0.8;
+  background-color: #1a1919;
+  border: 1px solid #242424;
+  cursor: pointer;
+  border-radius: 0;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.item-list-container:hover {
+  background-color: #222222;
+  border-color: #383838;
+}
+
+.item-selected {
+  background-color: #242424;
+  border: 1px solid #ffb703;
+}
+
+.item-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+/* FOLDER THEME FIX: Target Lucide Folders everywhere on the grid canvas */
+.item-list-container svg.lucide-folder,
+.item-list-container svg[data-lucide="folder"] {
+  color: #ffb703 !important; /* Strict Amber accent override */
+  stroke: #ffb703 !important; /* Re-locks vector strokes safely */
+}
+
+/* FILE THEME FIX: Target Lucide Files everywhere on the grid canvas */
+.item-list-container svg.lucide-file,
+.item-list-container svg[data-lucide="file"] {
+  color: #8e9aaf !important; /* Safe fallback slate neutral value */
+  stroke: #8e9aaf !important; /* Re-locks vector strokes safely */
+}
+
+/* Text Value Bounds Label */
+.item-name-label {
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Nicely cuts text off with dot notation */
+  color: #dcdcdc; /* Styled matching your target theme specs */
+  cursor: pointer;
 }

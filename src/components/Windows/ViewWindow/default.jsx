@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { useDirectoryStore } from "../../../store/useDirectoryStore";
 import { invoke } from "@tauri-apps/api/core";
-import './default.css';
-import { Folder,File,ChevronLeft, Home } from "lucide-react";
+import "./default.css";
+import { Folder, File, ChevronLeft, Home } from "lucide-react";
 
 // Things mentioned by gemini
 // it create this normalized function
@@ -15,7 +15,7 @@ import { Folder,File,ChevronLeft, Home } from "lucide-react";
 // This is regex ik yk but still i will tell you
 const WINDOWS_DRIVE_RE = /^[A-Za-z]:[\\/]?$/;
 
-// it's sole purpose is to clean the path 
+// it's sole purpose is to clean the path
 function normalizePath(rawPath) {
   if (!rawPath) return rawPath;
 
@@ -30,10 +30,9 @@ function normalizePath(rawPath) {
     }
     return cleanPath;
   }
-    //for linux
-    let cleanPath = rawPath.replace(/\\/g, "/");
-    return cleanPath;
-  
+  //for linux
+  let cleanPath = rawPath.replace(/\\/g, "/");
+  return cleanPath;
 }
 
 export function ViewWindow() {
@@ -115,7 +114,7 @@ export function ViewWindow() {
       setCurrentPath(item.path);
       setSelectedItem(null);
     }
-    //TODO : condition to open the file 
+    //TODO : condition to open the file
   };
 
   const handleBack = () => {
@@ -125,61 +124,58 @@ export function ViewWindow() {
     let cleanPath = normalizePath(p);
 
     // gemini idea to add this condition else if you saw my code u would have killed me
-    const WinRoot = WINDOWS_DRIVE_RE.test(cleanPath);//check with regex whether it matches or not, output is bool
+    const WinRoot = WINDOWS_DRIVE_RE.test(cleanPath); //check with regex whether it matches or not, output is bool
     const LinuxRoot = cleanPath === "/"; // check the condition after ===, result bool
 
     if (WinRoot || LinuxRoot) return; // if root user then end function here don't run below commands
 
-
-
-// we are checking whether it include : or not  if yes then mostly it will be of windows 
-if (cleanPath.includes(":")) {
+    // we are checking whether it include : or not  if yes then mostly it will be of windows
+    if (cleanPath.includes(":")) {
       if (cleanPath.endsWith("\\")) {
-
         cleanPath = cleanPath.slice(0, -1); //this is to rmeove that last / or \ so that back button works nicely and won't stuck if we remove this the back button will get stuck
       }
-      
-      const lastSlash = cleanPath.lastIndexOf('\\');
-    // lastIndexOf is used for (as specified in it's name) 
-      
+
+      const lastSlash = cleanPath.lastIndexOf("\\");
+      // lastIndexOf is used for (as specified in it's name)
+
       if (lastSlash <= 2) {
-        //in short the substring is just used to extract required amout of string from the string 
+        //in short the substring is just used to extract required amout of string from the string
         setCurrentPath(cleanPath.substring(0, 2) + "\\");
         return; // Stops here
       }
-      
+
       setCurrentPath(cleanPath.substring(0, lastSlash));
       return; // Complete execution block immediately
     }
-// now we are checking is this linux 
+    // now we are checking is this linux
     if (cleanPath.endsWith("/")) {
       cleanPath = cleanPath.slice(0, -1);
     }
-    const lastSlash = cleanPath.lastIndexOf('/');
-      // Similar is anything happen in linux
-    setCurrentPath(cleanPath.substring(0, lastSlash) || '/');
+    const lastSlash = cleanPath.lastIndexOf("/");
+    // Similar is anything happen in linux
+    setCurrentPath(cleanPath.substring(0, lastSlash) || "/");
   };
 
   return (
     <div className="view-window">
-        <div className="view-win-top-loc">
-          <button className="back-button" onClick={handleBack}>
-          <ChevronLeft size={16} /> 
+      <div className="view-win-top-loc">
+        <button className="back-button" onClick={handleBack}>
+          <ChevronLeft size={16} />
           {/* from lucide-react */}
         </button>
-      <div className="File-path">
-        <p className="path-display">
-          {/* //if (currentPath) return currentPath
+        <div className="File-path">
+          <p className="path-display">
+            {/* //if (currentPath) return currentPath
           //if(...)... same for all 3 */}
-          {currentPath || currentDir || "Loading workspace..."}
-        </p>
-      </div>
+            {currentPath || currentDir || "Loading workspace..."}
+          </p>
+        </div>
         <button className="gohome-btn" onClick={goHome}>
           <Home size={16} />
         </button>
-        </div>
+      </div>
 
-{/* if conditiion 1 is correct then 2nd will be given else it won't */}
+      {/* if conditiion 1 is correct then 2nd will be given else it won't */}
       {error && (
         <div className="error-msg">
           <p>{error}</p>
@@ -193,12 +189,12 @@ if (cleanPath.includes(":")) {
             key={`${item.name}-${index}`}
             // in className if we select item then we will add another className so that we can set that selected theme
             // className="a b" that means element has 2 className a and b
-            className={`item-list-container ${selectedItem === item.path ? 'item-selected' : ''}`}
+            className={`item-list-container ${selectedItem === item.path ? "item-selected" : ""}`}
             onClick={() => handleFileClick(item)}
             onDoubleClick={() => handleFileDoubleClick(item)}
           >
             <div className="item-icon-container">
-              {item.is_dir ? <Folder size={56} /> : <File size={56} />} 
+              {item.is_dir ? <Folder size={56} /> : <File size={56} />}
               {/* if is_dir then folder else file */}
             </div>
             <label className="item-name-label" title={item.name}>
@@ -209,4 +205,4 @@ if (cleanPath.includes(":")) {
       </div>
     </div>
   );
-}  
+}

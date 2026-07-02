@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow: hidden;
 }
 
 .sidebar-container button,
@@ -87,3 +88,14 @@ hr{
   margin-right: 20px;
   opacity: 0.4;
 }
+
+
+.folder-list {
+  flex-grow: 1;
+  overflow-y: auto;  
+  min-height: 0;       
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
+}
+
