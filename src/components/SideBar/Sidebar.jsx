@@ -160,30 +160,22 @@ export function Sidebar() {
       <hr />
 
       <div className="folder-list">
-  {listFiles.map((item, index) => {
+        {listFiles.map((item, index) => {
+          if (item.name.startsWith('.')) return null;
+          if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) return null;
 
-    if(searchQuery&&item.name.toLowerCase().includes(searchQuery.toLowerCase())){
-      return (<button 
-        key={`${item.name}-${index}`} 
-        onClick={() => handleClick(item)}
-      >
-        {item.is_dir?<Folder size={20} />:<File size={20}/>}
-        <label>{item.name}</label>
-      </button>);
-    }
-    if(item.is_dir&&(!item.name.startsWith('.'))){
-    return (
-      <button 
-        key={`${item.name}-${index}`} 
-        className="folders" 
-        onClick={() => handleClick(item)}
-      >
-        <Folder size={20} />
-        <label>{item.name}</label>
-      </button>
-    );}
-  })}
-</div>
+          return (
+            <button 
+              key={`${item.name}-${index}`} 
+              className="folders" 
+              onClick={() => setCurrentPath(item.path)}
+            >
+              {item.is_dir ? <Folder size={20} /> : <File size={20} />}
+              <label>{item.name}</label>
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -191,3 +183,4 @@ export function Sidebar() {
 // TODO for me -> change the icons and folder images, recheck css, add items to filtered query, then display on screen, change colors of settings,find a way to change the color of scroll bar, develop enter and click key events
 // every TODO is a currently issue
 //ISSUE - nothing good is present at corners
+//newTODO -> change color of folder
