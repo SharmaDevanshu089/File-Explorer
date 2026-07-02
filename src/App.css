@@ -39,3 +39,11 @@
   width: 75%;
   height: 100%;
 }
+
+.app-window {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 75%;
+  height: 100%;
+}
