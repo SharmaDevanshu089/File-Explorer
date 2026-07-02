@@ -47,3 +47,31 @@
   width: 75%;
   height: 100%;
 }
+.window-toggle-btn {
+  position: absolute;
+  z-index: 100;
+  right: 12px;         
+  top: 10px;           
+  padding: 6px;        
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-text);
+  opacity: 0.6;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.window-toggle-btn:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--primary-accent);
+}
+
+.window-toggle-btn:active {
+  transform: scale(0.95);
+}
