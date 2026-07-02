@@ -2,7 +2,7 @@ use serde::Serialize;
 use std::fs;
 use std::path::Path;
 
-#[derive(Serialize)]
+#[derive(Serialize, Debug)]
 pub struct FileInfo {
     name: String,
     path: String,
