@@ -9,8 +9,20 @@ export function Sidebar() {
   //   FetchData("home_dir");
   // },[])
   return (
-    <div>
+    <div class="sidebar-container">
 
+      {/* BELOW I HAVE LISTED ALL SIDEBAR LIBRARIES OPTION FOR YOU
+       
+       home_dir = USer Home
+       audio_dir = Music Directory
+       desktop_dir = Desktop Directory
+       documents_dir = Documents Directory
+       downloads_dir = Downloads Directory
+       pictures_dir = Pictures Directory
+       videos_dir = Videos Directory
+       
+       
+      */}
     </div>
   )
 }
