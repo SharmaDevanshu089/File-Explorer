@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Toast Notification Banner Micro Canvas
+   ========================================================================== */
+
+/* Snappy slide down and fade tracking entry sequence */
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fixed anchoring coordinate node in the workspace window framework */
+.toast-banner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1005; /* Sits completely elevated above layout grids and dialog modals */
+  min-width: 260px;
+  max-width: 380px;
+  padding: 12px 16px;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  animation: toastSlideIn 0.15s ease-out;
+}
+
+/* Interior structural string values label config */
+.toast-banner label {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
+  cursor: default;
+}
+
+/* Normal execution confirmation scheme block */
+.toast-banner.normal {
+  border: 1px solid #282828;
+  border-left: 4px solid var(--primary-accent, #ffb703); /* Identifies target profile accent */
+  color: hsl(38, 15%, 94%);
+}
+
+/* Operation runtime break or failure alert scheme block */
+.toast-banner.error {
+  border: 1px solid #2a1b1b;
+  border-left: 4px solid #e63946; /* Fixed color mapping matching layout error bar rules */
+  color: #ff8888;
+}

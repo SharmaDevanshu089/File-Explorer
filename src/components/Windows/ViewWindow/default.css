@@ -8,10 +8,16 @@
   overflow: hidden; /* Locks parent viewport chain */
 
   /* Protects workspace layout from blue highlights on multi-clicks */
-  /* i just wrote user-select it is still selecting so gemini give */
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+}
+
+/* re enable typing selection so inputs don't lock up inside rename boxes */
+.view-window input[type="text"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
 }
 
 .view-win-top-loc {
@@ -20,7 +26,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 12px 16px;
-  background-color: #1a1a1a;
+  background-color: #1d1613;
   border-bottom: 2px solid #282828;
 }
 
@@ -41,7 +47,7 @@
 .back-button:hover,
 .gohome-btn:hover {
   background-color: #2d2d2d;
-  opacity:0.8;
+  opacity: 0.8;
   color: #ffb703;
   border-color: #ffb703;
 }
@@ -165,4 +171,18 @@
   text-overflow: ellipsis; /* Nicely cuts text off with dot notation */
   color: #dcdcdc; /* Styled matching your target theme specs */
   cursor: pointer;
+}
+
+/* highlighted states layout rules when item right click menu opens up */
+.item-context-active {
+  background-color: rgba(255, 183, 3, 0.08) !important;
+  outline: 1px dashed #ffb703;
+}
+
+.item-context-active .item-icon-container svg {
+  stroke: #ffb703;
+}
+
+.item-context-active .item-name-label {
+  color: #ffb703;
 }

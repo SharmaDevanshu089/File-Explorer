@@ -1,0 +1,57 @@
+@keyframes dropFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fullscreen transparent safety net click catcher */
+.dropdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: transparent;
+}
+
+/* Floating Right-Click Menu Board Canvas */
+.dropdown-menu {
+  position: fixed; /* Moved from inline style to keep JSX small */
+  z-index: 999;
+  background: #190f0a;
+  border: 1px solid #282828;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  animation: dropFade 0.08s ease-out;
+}
+
+/* Clean, flat action option rows */
+.dropdown-menu button {
+  background: transparent;
+  border: none;
+  padding: 8px 14px;
+  color: #cccccc;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.1s ease;
+}
+
+.dropdown-menu button:hover {
+  background: #242424;
+  color: var(--primary-accent, #ffb703); /* Pops target amber on hover */
+}
+
+/* Micro separation rules */
+.dropdown-hr {
+  border: none;
+  border-top: 1px solid #282828;
+  margin: 4px 0;
+  width: 100%;
+}
